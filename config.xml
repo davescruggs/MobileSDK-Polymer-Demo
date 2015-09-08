@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.salesforce.mobilesdk.internal" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MobileSDK-Demo</name>
+    <description>
+        A sample app built using salesforce mobile SDK that demonstrates its various features.
+    </description>
+    <author email="support@salesforce.com" href="https://www.salesforce.com">
+        Salesforce.com
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="BackupWebStorage" value="local"/>
+</widget>

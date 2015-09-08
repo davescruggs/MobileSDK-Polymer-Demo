@@ -1,0 +1,46 @@
+<link rel="import" href="../dependencies/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../dependencies/core-toolbar/core-toolbar.html">
+<link rel="import" href="../dependencies/core-icon-button/core-icon-button.html">
+<link rel="import" href="../dependencies/core-list/core-list.html">
+<link rel="import" href="../dependencies/paper-toast/paper-toast.html">
+<polymer-element name="search-screen" extends="force-route" attributes="sobject searchfields fieldstofetch resultHeight">
+    <template>
+
+        <link rel="stylesheet" href="search-screen.css"/>
+
+        <core-scroll-header-panel id="scrollHeader" touch-action="pan-y">
+            
+            <core-toolbar id="header" class="header-toolbar">
+                <core-icon id="menu-icon" class="icon" icon="menu" on-tap="{{showMenu}}"></core-icon>
+                <div class="title" flex>{{sobject}}s</div>
+            </core-toolbar>
+
+            <core-toolbar id="toolbar" class="search-toolbar">
+
+                <core-icon id="sync_icon" class="icon" icon="notification:sync" on-tap="{{fireSyncUp}}"></core-icon>
+                <div class="search-box" flex layout horizontal center>
+                    <core-icon id="search_icon" icon="search" class="search-icon"></core-icon>
+                    <force-ui-search id="search" sobject="{{sobject}}" searchfields="{{searchfields}}" fieldstofetch="{{fieldstofetch}}" cachemode="{{cachemode}}" flex on-down="{{searchFocused}}" on-touchend="{{stopClick}}"></force-ui-search>
+                </div>
+                <core-icon id="create_icon" class="icon" icon="add" on-tap="{{navigateToCreate}}"></core-icon>
+                <div class="cancelBtn" on-tap="{{cancelSearch}}">Cancel</div>
+              
+            </core-toolbar>
+
+            <div class="content">
+                <img id="loading" class="loadingInd" src="loading-gray.gif"/>
+                <force-sobject-sync sobject="{{sobject}}" fieldstoindex="{{searchfields}}" query="{{syncQuery}}" on-sync-progress="{{handleSyncResponse}}" on-sync-complete="{{handleSyncResponse}}"></force-sobject-sync>
+                <force-sobject-collection id="list" sobject="{{sobject}}" querytype="{{$.search.querytype}}" query="{{$.search.query}}" autosync="false"></force-sobject-collection>
+                <core-list id="uilist" height="{{resultHeight}}" data="{{$.list.collection.models}}" on-touchend="{{stopClick}}">
+                    <content select="*"></content>
+                </core-list>
+
+            </div>
+
+        </core-scroll-header-panel>
+
+        <paper-toast id="status_toast" text=""></paper-toast>
+
+    </template>
+    <script src="search-screen.js"></script>
+</polymer-element>

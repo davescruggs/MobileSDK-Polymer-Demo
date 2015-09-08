@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.salesforce.mobilesdk.internal" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="AndroidLaunchMode" value="singleTop" />
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="PushPlugin">
+        <param name="android-package" value="com.plugin.gcm.PushPlugin" />
+    </feature>
+    <access origin="http://127.0.0.1*" />
+    <access origin="https://*.force.com" />
+    <access origin="https://*.salesforce.com" />
+    <feature name="com.salesforce.oauth">
+        <param name="android-package" value="com.salesforce.androidsdk.phonegap.SalesforceOAuthPlugin" />
+    </feature>
+    <feature name="com.salesforce.sfaccountmanager">
+        <param name="android-package" value="com.salesforce.androidsdk.phonegap.SFAccountManagerPlugin" />
+    </feature>
+    <feature name="com.salesforce.sdkinfo">
+        <param name="android-package" value="com.salesforce.androidsdk.phonegap.SDKInfoPlugin" />
+    </feature>
+    <feature name="com.salesforce.smartstore">
+        <param name="android-package" value="com.salesforce.androidsdk.smartstore.phonegap.SmartStorePlugin" />
+    </feature>
+    <feature name="com.salesforce.smartsync">
+        <param name="android-package" value="com.salesforce.androidsdk.smartsync.phonegap.SmartSyncPlugin" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" onload="true" value="org.apache.cordova.statusbar.StatusBar" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <name>MobileSDK-Demo</name>
+    <description>
+        A sample app built using salesforce mobile SDK that demonstrates its various features.
+    </description>
+    <author email="support@salesforce.com" href="https://www.salesforce.com">
+        Salesforce.com
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="BackupWebStorage" value="local" />
+</widget>

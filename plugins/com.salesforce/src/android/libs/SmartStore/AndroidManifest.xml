@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.salesforce.androidsdk.smartstore"
+	android:versionCode="39"
+	android:versionName="3.0.0.unstable">
+
+    <uses-sdk android:minSdkVersion="17" />
+
+	<application>
+
+        <!--  SmartStore Inspector screen -->
+        <activity android:name="com.salesforce.androidsdk.smartstore.ui.SmartStoreInspectorActivity" />
+	</application>
+</manifest>

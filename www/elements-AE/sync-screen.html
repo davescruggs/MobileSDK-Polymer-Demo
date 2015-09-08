@@ -1,0 +1,125 @@
+<polymer-element name="sync-status-icon" attributes="recordid, failedids">
+    <template>
+        <template if="{{failed}}">
+            <core-icon icon="error" style="fill: red"></core-icon>
+        </template>
+    </template>
+    <script>
+        Polymer('sync-status-icon', {
+            get failed() {
+                return _.contains(this.failedids, this.recordid);
+            }
+        })
+    </script>
+</polymer-element>
+
+<polymer-element name="sync-screen" extends="force-route" attributes="sobject" on-route-changed="{{viewLoaded}}">
+    <template>
+        <style>
+            :host /deep/ core-icon {
+                color: #fff;
+                width: 40px; 
+                height: 40px;
+            }
+        </style>
+        <paper-shadow target="{{$.toolbar}}"></paper-shadow>
+
+        <core-toolbar id="toolbar">
+          <core-icon id="back-icon" icon="chevron-left" on-tap="{{navigateBack}}" style="width: 45px; height: 45px; margin: -5px;" on-touchend="{{stopClick}}"></core-icon>
+          <div flex></div>
+          <div on-tap="{{doSync}}" style="color:white; line-height: 50px; width: 80px;" layout horizontal end-justified>Sync</div>
+        </core-toolbar>
+
+        <div style="position: absolute; top: 64px; bottom: 0; right: 0; left: 0; overflow-y: scroll; -webkit-overflow-scrolling: touch;">
+            
+            <force-sobject-collection id="list" sobject="{{sobject}}" querytype="cache" query="{{query}}" on-sync="{{syncComplete}}"></force-sobject-collection>
+            <div id="listview">
+                <template repeat="{{model in $.list.collection.models}}">
+                    <a href="#edit/{{model.id}}/sync" style="text-decoration: none; color: inherit">
+                        <div style="line-height: 20px; padding: 10px; border-bottom: 1px solid rgb(221, 221, 221);">
+                            <div horizontal layout>
+                                <status-icon props="{{model.attributes}}"></status-icon>
+                                <sync-status-icon recordid="{{model.id}}" failedids="{{failedIds}}"></sync-status-icon>
+                                <div flex style="margin-left: 10px">{{model.attributes.Name || (model.attributes.FirstName + ' ' + model.attributes.LastName)}}</div>
+                                <core-icon icon="chevron-right" style="fill: black"></core-icon>
+                            </div>
+                        </div>
+                    </a>
+                    <force-sobject sobject="{{sobject}}" recordid="{{model.id}}" mergemode="{{mergemode}}"></force-sobject>
+                </template>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+    Polymer('sync-screen', {
+        failedIds: [],
+        query: {queryType:"exact", indexPath:"__local__", matchKey:true, order:"ascending", pageSize:25},
+        get mergemode() {
+            return Force.MERGE_MODE.MERGE_FAIL_IF_CHANGED;
+        },
+
+        stopClick: function(e) {
+            e.preventDefault();
+        },
+
+        refresh: function() {
+            this.$.list.fetch();
+        },
+
+        hasLocalChanges: function() {
+            return this.$.list.collection.length > 0;
+        },
+
+        doSync: function() {
+            var that = this;
+            var sobjects = this.$.listview.querySelectorAll('force-sobject');
+            var syncStatuses = [];
+
+            this.failedIds = [];
+            var saveOptions = function(deferred) {
+                return {
+                    cacheMode: Force.CACHE_MODE.SERVER_FIRST,
+                    success: function() {
+                        that.$.list.fetch();
+                        that.fire('item-synced');
+                        deferred.resolve();
+                    },
+                    error: function(model) {
+                        that.failedIds.push(model.id);
+                        that.$.list.fetch();
+                        deferred.resolve();
+                    }
+                }
+            }
+
+            _.each(sobjects, function(sobject) {
+                var statusDeferred = $.Deferred();
+                var options = saveOptions(statusDeferred);
+
+                if (sobject.fields['__locally_deleted__'])
+                    sobject.destroy(options);
+                else sobject.save(options);
+
+                //Track save status and fire a complete event when all saves are finished
+                syncStatuses.push(statusDeferred.promise());
+            });
+
+            return $.when.apply($, syncStatuses).then(function() {
+                that.fire('sync-complete');
+            });
+        },
+
+        navigateBack: function() {
+            window.history.back();
+        },
+
+        syncComplete: function() {
+            if (!this.hasLocalChanges() && this.path == Backbone.history.fragment) this.navigateBack();
+        },
+
+        viewLoaded: function() {
+            if (!this.hasLocalChanges()) this.navigateBack();  
+        }
+    });
+    </script>
+</polymer-element>
