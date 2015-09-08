@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5DDAB065-F3E3-4921-8484-43F235B4AB27</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MobileSDK-Demo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9800A3F8D589C6940EB2CFB14BD05068D3FF26BA</key>
+		<string>https://github.com/eoksman/MobileSDK-Polymer-Demo</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/MobileSDK-Demo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9800A3F8D589C6940EB2CFB14BD05068D3FF26BA</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/eoksman/MobileSDK-Polymer-Demo</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9800A3F8D589C6940EB2CFB14BD05068D3FF26BA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9800A3F8D589C6940EB2CFB14BD05068D3FF26BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MobileSDK-Polymer-Demo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
