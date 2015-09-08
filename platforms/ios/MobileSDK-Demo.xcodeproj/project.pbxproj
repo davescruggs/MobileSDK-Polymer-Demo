@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0B2E2AB780714C68960CDD5A /* libMKNetworkKit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13781BE0E4D94F05850C8E55 /* libMKNetworkKit-iOS.a */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -34,6 +35,8 @@
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		667DCB876081460380C654F3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AA90764CFE4E789FAA79F8 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		67541E041B9F4C9700A05A29 /* Philips-icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67541E031B9F4C9700A05A29 /* Philips-icon-60@2x.png */; };
+		67541E061B9F4C9E00A05A29 /* Philips-Default-568h@2x iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 67541E051B9F4C9E00A05A29 /* Philips-Default-568h@2x iPhone.png */; };
 		6927DD5FDCE54F5AB8456ECB /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE8E97C24F244FEBA3417ED /* InitialViewController.m */; };
 		6F784E1788414FB0B10F2AFA /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8044FCC687244A8C94815D4F /* AppDelegate+notification.m */; };
 		7679808D7C1348D382529CB4 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3013C874564FA09577690F /* libsqlcipher.a */; };
@@ -123,6 +126,8 @@
 		5703B4E3E2824B97BEEC48C0 /* UIApplication+SalesforceHybridSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+SalesforceHybridSDK.h"; path = "com.salesforce/UIApplication+SalesforceHybridSDK.h"; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		67541E031B9F4C9700A05A29 /* Philips-icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Philips-icon-60@2x.png"; sourceTree = "<group>"; };
+		67541E051B9F4C9E00A05A29 /* Philips-Default-568h@2x iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Philips-Default-568h@2x iPhone.png"; sourceTree = "<group>"; };
 		717CA732C5C1412582B4F168 /* SFUserAccountConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUserAccountConstants.h; path = com.salesforce/salesforce/SFUserAccountConstants.h; sourceTree = "<group>"; };
 		7376E1384E03496C907CA082 /* libxml2.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		78EF82A1BFAC4ADBA5A5A5DF /* SalesforceSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SalesforceSDKResources.bundle; sourceTree = "<group>"; };
@@ -384,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				26CD522819E8FCF3002FA485 /* Cardinal-icon-60@2x cardinal.png */,
+				67541E031B9F4C9700A05A29 /* Philips-icon-60@2x.png */,
 				26DC925A19E63293001F009E /* Zero-icon-60@2x.png */,
 			);
 			path = icons;
@@ -392,6 +398,7 @@
 		308D05311370CCF300D202BF /* splash */ = {
 			isa = PBXGroup;
 			children = (
+				67541E051B9F4C9E00A05A29 /* Philips-Default-568h@2x iPhone.png */,
 				26CD522A19E8FCFE002FA485 /* Cardinal-Default-568h@2x iPhone.png */,
 				26DC925E19E6329B001F009E /* Zero-Default-568h@2x iPhone.png */,
 			);
@@ -504,7 +511,9 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				26DC925819E63226001F009E /* Images.xcassets in Resources */,
 				30A0434814DC770100060A13 /* Localizable.strings in Resources */,
+				67541E041B9F4C9700A05A29 /* Philips-icon-60@2x.png in Resources */,
 				B84C3CA1F82E430D95A35714 /* Settings.bundle in Resources */,
+				67541E061B9F4C9E00A05A29 /* Philips-Default-568h@2x iPhone.png in Resources */,
 				26CD522919E8FCF3002FA485 /* Cardinal-icon-60@2x cardinal.png in Resources */,
 				B7EB30D462E7404984543042 /* SalesforceSDKResources.bundle in Resources */,
 			);
